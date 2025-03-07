@@ -1,0 +1,282 @@
+/* ===== Estilos Generales ===== */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1B1B2F; /* Fondo oscuro */
+    color: #ECF0F1; /* Texto claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 250px;
+    background-color: #0c1b33; /* Azul oscuro */
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1001; /* Asegurar que esté por encima del contenido */
+}
+
+/* 📌 Ocultar sidebar en móviles por defecto */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+}
+
+/* 📌 Botón del menú */
+.menu-button {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #E74C3C;
+    color: white;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1100; /* Asegura que esté por encima del sidebar */
+    border-radius: 5px;
+}
+
+/* 🟢 Mostrar botón solo en móviles */
+@media (max-width: 768px) {
+    .menu-button {
+        display: block;
+    }
+}
+
+/* Sidebar Header */
+.sidebar-header h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #E74C3C; /* Rojo */
+}
+
+/* Sidebar Menu */
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 20px 0;
+}
+
+.sidebar-menu a {
+    color: #BDC3C7;
+    font-size: 18px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.sidebar-menu a i {
+    font-size: 20px;
+}
+
+.sidebar-menu a:hover {
+    background-color: #1F4068;
+    color: #ECF0F1;
+    transform: scale(1.05);
+}
+
+/* ===== Contenido Principal ===== */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    background-color: #1e2a47;
+    min-height: 100vh;
+    color: #ECF0F1;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100vh;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+/* 🟢 Ajuste cuando el sidebar está oculto */
+.main-content.sidebar-active {
+    margin-left: 0;
+    width: 100%;
+}
+
+/* ===== Header ===== */
+.header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #1e3a63;
+    padding: 15px;
+    color: white;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    z-index: 1000; /* Asegura que se mantenga visible */
+}
+
+/* ===== Línea de Tiempo ===== */
+.timeline {
+    background-color: #1e2a47;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    background-color: #1F4068;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.timeline-item:hover {
+    transform: scale(1.05);
+}
+
+.timeline-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #E74C3C;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-right: 15px;
+}
+
+.timeline-content h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.timeline-content p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #BDC3C7;
+}
+
+/* ===== Calendario ===== */
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1C2833;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    margin: 20px auto;
+}
+
+.calendar-input {
+    width: 100%;
+    background: #34495E;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    color: #ECF0F1;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* ===== Contenedores de Gráficos ===== */
+.charts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.chart-container {
+    background-color: #1F4068;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* ===== Diseño Responsivo ===== */
+@media (max-width: 1024px) {
+    .charts {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .menu-button {
+        display: block;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+    .charts {
+        grid-template-columns: 1fr;
+    }
+    .timeline-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .timeline-icon {
+        margin: 0 auto 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 60px;
+        padding: 10px;
+    }
+    .sidebar.active {
+        width: 250px;
+    }
+    .sidebar-menu a {
+        font-size: 12px;
+        padding: 8px;
+        justify-content: center;
+    }
+    .timeline-content h3 {
+        font-size: 16px;
+    }
+    .timeline-content p {
+        font-size: 12px;
+    }
+}
