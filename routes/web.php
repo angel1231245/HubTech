@@ -1,20 +1,40 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Página de inicio
+Route::get('/', [ServicioController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Sección de Servicios
+Route::get('/servicios', [ServicioController::class, 'servicios'])->name('servicios');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Página de Contacto
+Route::get('/contacto', [ServicioController::class, 'contacto'])->name('contacto');
 
-require __DIR__.'/auth.php';
+// Secciones de Servicios Específicos
+Route::get('/frenos', function () {
+    return view('frenos');
+})->name('frenos');
+
+Route::get('/mantenimiento', function () {
+    return view('mantenimiento');
+})->name('mantenimiento');
+
+Route::get('/motor', function () {
+    return view('motor');
+})->name('motor');
+
+Route::get('/aireacondicionado', function () {
+    return view('aireacon');
+})->name('aireacon');
+
+// Autenticación (Login y Registro)
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
