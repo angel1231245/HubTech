@@ -43,6 +43,20 @@ header {
     max-width: 50%;
 }
 
+/* Estilos para el botón de inicio de sesión */
+.btn-login {
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Quitar subrayado */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.btn-login:hover {
+    background-color: #0056b3; /* Cambio de color al pasar el mouse */
+}
 
 .container {
     max-width: 1100px;
@@ -302,7 +316,7 @@ hr {
     color: #0eaef3;
 }
 
-@media (max-width:991px) {
+@media (max-width: 991px) {
 
     .menu {
         padding: 20px;
@@ -325,7 +339,7 @@ hr {
         width: 100%;
     }
 
-    #menu:checked~.navbar {
+    #menu:checked ~ .navbar {
         display: initial;
     }
 

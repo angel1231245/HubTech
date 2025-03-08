@@ -1,5 +1,4 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -26,6 +25,7 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
                 <li><a href="CRM.html">Contacto</a></li>
+                <li><a href="{{ route('login') }}" class="btn-login">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </div>
@@ -134,7 +134,7 @@
                     <p>
                         Registrate:
                     </p>
-                    <a href="login.html" class="btn-1">Iniciar Sesión</a>
+                    <a href="{{ route('login') }}" class="btn-1">Iniciar Sesión</a>
                 </div>
             </div>
             <hr>

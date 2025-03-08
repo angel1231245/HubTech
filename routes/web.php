@@ -1,40 +1,33 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GraficasController; // Asegúrate de importar el controlador
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ServicioController;
-use App\Http\Controllers\AuthController;
 
-// Página de inicio
-Route::get('/', [ServicioController::class, 'index'])->name('home');
+// Ruta principal
+Route::get('/', function () {
+    return view('dashboard');
+});
 
-// Sección de Servicios
-Route::get('/servicios', [ServicioController::class, 'servicios'])->name('servicios');
+// Ruta del dashboard
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Página de Contacto
-Route::get('/contacto', [ServicioController::class, 'contacto'])->name('contacto');
+// Rutas de perfil (protegidas por autenticación)
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-// Secciones de Servicios Específicos
-Route::get('/frenos', function () {
-    return view('frenos');
-})->name('frenos');
+    // Nueva ruta para mostrar el formulario de selección de gráficas
+    Route::get('/seleccion-graficas', [GraficasController::class, 'mostrarFormularioGraficas'])
+        ->name('seleccion.graficas');
 
-Route::get('/mantenimiento', function () {
-    return view('mantenimiento');
-})->name('mantenimiento');
+    // Nueva ruta para procesar la selección de gráficas
+    Route::post('/procesar-seleccion-graficas', [GraficasController::class, 'procesarSeleccionGraficas'])
+        ->name('procesar.seleccion.graficas');
+});
 
-Route::get('/motor', function () {
-    return view('motor');
-})->name('motor');
-
-Route::get('/aireacondicionado', function () {
-    return view('aireacon');
-})->name('aireacon');
-
-// Autenticación (Login y Registro)
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthController::class, 'register']);
-
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// Rutas de autenticación (registro, inicio de sesión, etc.)
+require __DIR__.'/auth.php';

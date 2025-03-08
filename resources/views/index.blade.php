@@ -7,36 +7,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-
-    <!-- Librerías JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-<!-- 📌 Botón del menú (solo en móviles) -->
-<button id="menu-toggle" class="menu-button">
-    <i class="fas fa-bars"></i>
-</button>
-
-<!-- 📌 Sidebar -->
-<div class="sidebar">
-    <div class="sidebar-header">
-        <h2>Dashboard</h2>
-    </div>
-    <ul class="sidebar-menu">
-        <li><a href="#"><i class="fas fa-chart-line"></i> Reportes</a></li>
-        <li><a href="#"><i class="fas fa-shopping-cart"></i> Ventas</a></li>
-        <li><a href="#"><i class="fas fa-users"></i> Clientes</a></li>
-        <li><a href="#"><i class="fas fa-boxes"></i> Inventario</a></li>
-        <li><a href="#"><i class="fas fa-cogs"></i> Configuración</a></li>
-    </ul>
-</div>
-
-<!-- 📌 Contenido Principal -->
+<!-- Contenido Principal -->
 <div class="main-content">
 
-    <!-- 🔹 Header con título y calendario -->
+    <!-- Header con título y calendario -->
     <header class="header">
         <h1>HubTech</h1>
         <div class="calendar-container">
@@ -44,7 +23,7 @@
         </div>
     </header>
 
-    <!-- 🔹 Sección de Gráficos -->
+    <!-- Sección de Gráficos -->
     <section class="charts">
         <div class="chart-container">
             <h3>Ventas Mensuales</h3>
@@ -60,7 +39,7 @@
         </div>
     </section>
 
-    <!-- 🔹 Línea de Tiempo -->
+    <!-- Línea de Tiempo -->
     <section class="timeline">
         <h2>Historial de Ventas</h2>
         <div class="timeline-container">
@@ -90,11 +69,11 @@
 
 </div>
 
-<!-- 📌 Cargar JS -->
+<!-- Cargar JS -->
 <script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<!-- 📌 Script para Sidebar, Calendario y Gráficos -->
+<!-- Script para Sidebar, Calendario y Gráficos -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Inicializar Flatpickr para mejorar la selección de fecha
