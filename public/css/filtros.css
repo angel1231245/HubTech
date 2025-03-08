@@ -1,0 +1,97 @@
+.calendar-input {
+    color: #0048ff !important;
+}
+
+.flatpickr-calendar {
+    color: #ff00a1 !important;
+}
+
+.flatpickr-day {
+    color: #FFFFFF !important;
+}
+
+.flatpickr-day.selected {
+    background: #FF4500 !important;
+    color: #FFFFFF !important;
+}
+
+.download-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}
+
+/* Estilos generales para el formulario de filtro */
+.filter-container input,
+.filter-container select {
+    color: #FFFFFF; /* Color del texto en inputs y selects */
+    background-color: #4A5568; /* Fondo de los inputs y selects */
+    border: 1px solid #718096; /* Borde de los inputs y selects */
+    border-radius: 4px;
+    padding: 8px;
+    width: 100%;
+}
+
+.filter-container input::placeholder {
+    color: #A0AEC0; /* Color del placeholder */
+}
+
+.filter-container label {
+    color: #E2E8F0; /* Color del texto de las etiquetas */
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.filter-container {
+    background-color: #2D3748; /* Fondo del contenedor del formulario */
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.filter-container button {
+    background-color: #45a049; /* Color del botón Filtrar */
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+.filter-container button:hover {
+    background-color: #4299E1; /* Color del botón al pasar el mouse */
+}
+
+/* Estilos adicionales para flatpickr */
+.flatpickr-input {
+    color: #FFFFFF !important;
+    background-color: #4A5568 !important;
+    border: 1px solid #718096 !important;
+}
+
+.flatpickr-calendar {
+    background-color: #2D3748 !important;
+    color: #E2E8F0 !important;
+}
+
+.flatpickr-day {
+    color: #E2E8F0 !important;
+}
+
+.flatpickr-day.selected {
+    background: #4299E1 !important;
+    color: #FFFFFF !important;
+}
